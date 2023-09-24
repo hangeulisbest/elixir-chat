@@ -1,0 +1,38 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+
+body {
+    @apply antialiased relative bg-slate-200 font-sans;
+}
+  
+
+#main {
+    @apply flex h-screen bg-green-800;
+}
+
+#main .box {
+    @apply m-auto
+}
+
+#main h1 {
+    @apply text-5xl text-left font-extrabold leading-10 text-brand
+}
+
+#main .red-button {
+    @apply w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full
+}
+
+#main .blue-button {
+    @apply w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full
+}
+
+#main .purple-button {
+    @apply w-full bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full
+}
+
+#main .input-temps {
+    @apply block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}

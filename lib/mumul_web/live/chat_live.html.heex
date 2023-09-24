@@ -1,0 +1,68 @@
+<div id="main">
+  <div class="box">
+    <h1>
+      Are you ready? 
+    </h1>
+    <br>
+    <form :if={@create_room} phx-submit="click-room"> 
+        <input 
+            class="input-temps"
+            type="text" 
+            name="nick_name" 
+            value={@nick_name} 
+            placeholder="닉네임입력"
+            required />
+        <button class="red-button">
+            방만들기
+        </button>
+    </form>
+
+
+    <form :if={@join_room} phx-submit="click-room"> 
+        <input
+        class="input-temps"
+            type="text" 
+            name="join_code" 
+            value={@join_code} 
+            placeholder="참가코드입력"
+            required
+            />
+        <input
+        class="input-temps"
+            type="text" 
+            name="nick_name" 
+            value={@nick_name} 
+            placeholder="닉네임입력" 
+            required
+            />
+        <button class="red-button">
+            참가하기
+        </button>
+    </form>
+
+    <div :if={@join_room or @create_room} >
+        <br>
+        <button class="purple-button" phx-click="back">
+            뒤로가기
+        </button>
+    </div>
+
+    <br>
+    <br>
+    <button :if={@create} class="red-button" phx-click="show_create_room">
+        방만들기
+    </button>
+  <br>
+  <br>
+    <button :if={@join} class="blue-button" phx-click="show_join_room">
+        참가하기
+    </button>
+
+    <div id="item">My Item</div>
+    <button phx-click={JS.add_class("highlight underline", to: "#item")}>
+    highlight!
+    </button>
+
+
+  </div>
+</div>
