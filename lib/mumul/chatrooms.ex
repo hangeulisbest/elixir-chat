@@ -31,4 +31,9 @@ defmodule Mumul.Chatrooms do
   #   |> Chatroom.changeset(attrs)
   #   |> Repo.update()
   # end
+
+  def generate_UUID() do
+    Ecto.UUID.generate()
+    |> String.replace("-", "")
+  end
 end

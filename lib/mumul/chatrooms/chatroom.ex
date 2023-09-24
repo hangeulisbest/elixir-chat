@@ -3,8 +3,9 @@ defmodule Mumul.Chatrooms.Chatroom do
   import Ecto.Changeset
 
   schema "chatroom" do
-    field(:active_yn, Ecto.Enum, values: [:y, :n], default: :y)
-    field(:max_size, :integer)
+    field :active_yn, Ecto.Enum, values: [:y, :n]
+    field :chatroom_code, :string
+    field :max_size, :integer
 
     timestamps()
   end
@@ -12,7 +13,7 @@ defmodule Mumul.Chatrooms.Chatroom do
   @doc false
   def changeset(chatroom, attrs) do
     chatroom
-    |> cast(attrs, [:max_size, :active_yn])
-    |> validate_required([:max_size, :active_yn])
+    |> cast(attrs, [:max_size, :active_yn, :chatroom_code])
+    |> validate_required([:max_size, :active_yn, :chatroom_code])
   end
 end
