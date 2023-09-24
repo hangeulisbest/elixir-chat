@@ -3,9 +3,9 @@ defmodule Mumul.Chatrooms.Chatroom do
   import Ecto.Changeset
 
   schema "chatroom" do
-    field :active_yn, Ecto.Enum, values: [:y, :n]
-    field :chatroom_code, :string
-    field :max_size, :integer
+    field(:active_yn, Ecto.Enum, values: [:y, :n])
+    field(:chatroom_code, :string)
+    field(:max_size, :integer)
 
     timestamps()
   end
