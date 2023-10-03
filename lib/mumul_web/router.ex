@@ -18,6 +18,7 @@ defmodule MumulWeb.Router do
     pipe_through(:browser)
 
     live("/", ChatLive)
+    live("/chatroom", ChatroomLive)
   end
 
   # Other scopes may use custom stacks.

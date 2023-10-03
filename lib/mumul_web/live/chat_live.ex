@@ -2,6 +2,8 @@ defmodule MumulWeb.ChatLive do
   use MumulWeb, :live_view
 
   alias Mumul.Chatrooms
+  # alias Mumul.Chats
+  alias Mumul.Members
 
   def mount(_params, _session, socket) do
     {:ok,
@@ -12,7 +14,13 @@ defmodule MumulWeb.ChatLive do
   end
 
   def handle_event("create_chatroom", %{"max_size" => max_size, "nickname" => nickname}, socket) do
-    IO.puts("nickname is #{nickname} and max_size is #{max_size}")
+    chatroom = Chatrooms.create_chatroom(max_size) |> elem(1)
+    member = Members.create_member(chatroom.chatroom_code, nickname) |> elem(1)
+
+    socket =
+      push_navigate(socket,
+        to: ~p"/chatroom?chatroom_code=#{chatroom.chatroom_code}&member_id=#{member.id}"
+      )
 
     {:noreply, socket}
   end

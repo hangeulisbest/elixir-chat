@@ -9,7 +9,7 @@
             <div class="modal-box m-auto grid gap-y-3">
                 <h2 class="font-bold text-lg">채팅방을 만들어 보세요!</h2>
                 <form class="w-full grid gap-y-3" phx-submit="create_chatroom">
-                    닉네임<input type="text" 
+                    닉네임<.input type="text" 
                             name="nickname" 
                             value={@create_form.nickname} 
                             placeholder="닉네임 입력" 
@@ -38,8 +38,26 @@
             <dialog id="chatroom_join" class="modal">
             <div class="modal-box m-auto grid gap-3">
                 <h2 class="font-bold text-lg">참여코드와 닉네임을 입력하세요!</h2>
-                <input type="text" placeholder="참여코드" class="input"/>
-                <input type="text" placeholder="닉네임 입력" class="input"/>
+                <form class="w-full grid gap-y-3" phx-submit="join_chatroom">
+                    참여코드<.input type="text" 
+                            name="join_code" 
+                            value={@join_form.join_code} 
+                            placeholder="참여코드 입력" 
+                            class="input w-full"
+                            minlength="2" 
+                            maxlength="10"
+                            required
+                            />
+                    닉네임<.input type="text" 
+                    name="join_nickname" 
+                    value={@join_form.nickname} 
+                    placeholder="닉네임 입력" 
+                    class="input w-full"
+                    minlength="2" 
+                    maxlength="10"
+                    required
+                    />
+                </form>
                 <button class="btn btn-outline btn-warning">참여하기</button>
             </div>
             <form method="dialog" class="modal-backdrop">
