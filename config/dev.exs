@@ -22,7 +22,7 @@ config :mumul, MumulWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  debug_errors: false,
   secret_key_base: "wQz0c5TeSnjkAvIaKryJgZrqpSwQrTI2JlaOc0X5WBrrMwz230N6SleajMQz9qwH",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},

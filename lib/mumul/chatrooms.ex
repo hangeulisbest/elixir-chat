@@ -14,7 +14,22 @@ defmodule Mumul.Chatrooms do
 
   def get_chatroom!(id), do: Repo.get!(Chatroom, id)
 
-  def create_chatroom(attrs \\ %{}) do
+  def get_chatroom_by_chatroom_code(chatroom_code) do
+    chatroom =
+      from(Chatroom)
+      |> where(chatroom_code: ^chatroom_code)
+      |> Repo.one()
+
+    case chatroom do
+      nil -> {:error, nil}
+      _ -> {:ok, chatroom}
+    end
+  end
+
+  def create_chatroom(max_size) do
+    uuid = generate_UUID()
+    attrs = %{"max_size" => max_size, "chatroom_code" => uuid, "active_yn" => :y}
+
     %Chatroom{}
     |> Chatroom.changeset(attrs)
     |> Repo.insert()
@@ -32,7 +47,7 @@ defmodule Mumul.Chatrooms do
   #   |> Repo.update()
   # end
 
-  def generate_UUID() do
+  defp generate_UUID() do
     Ecto.UUID.generate()
     |> String.replace("-", "")
   end

@@ -16,6 +16,8 @@ defmodule Mumul.Application do
       {Phoenix.PubSub, name: Mumul.PubSub},
       # Start Finch
       {Finch, name: Mumul.Finch},
+      # presence 추가
+      MumulWeb.Presence,
       # Start the Endpoint (http/https)
       MumulWeb.Endpoint
       # Start a worker by calling: Mumul.Worker.start_link(arg)
